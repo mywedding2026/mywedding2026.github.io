@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#e9e5df">
+    <meta name="description" content="Invitación digital de boda de Odalis y Andersson — 22 de noviembre de 2026.">
     <title>Boda de Odalis &amp; Andersson</title>
 
-    <!-- Dependencia visual mantenida: Tailwind vía CDN -->
+    <!-- Tailwind CSS vía CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tipografías: serif editorial + manuscrita + sans minimalista -->
+    <!-- Tipografías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Allura&amp;family=Cormorant+Garamond:wght@400;500;600&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
@@ -27,7 +28,9 @@
             --shadow: 0 20px 55px rgba(64, 60, 56, 0.10), 0 4px 12px rgba(64, 60, 56, 0.07);
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             margin: 0;
@@ -41,8 +44,17 @@
             text-rendering: optimizeLegibility;
         }
 
-        .font-editorial { font-family: 'Cormorant Garamond', serif; }
-        .font-script { font-family: 'Allura', cursive; }
+        .font-editorial {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .font-script {
+            font-family: 'Allura', cursive;
+        }
+
+        .font-sans {
+            font-family: 'Montserrat', sans-serif;
+        }
 
         .page {
             width: min(100%, 1120px);
@@ -80,14 +92,34 @@
             opacity: .65;
             pointer-events: none;
         }
-        .ornament.top-right { top: 10px; right: 10px; }
-        .ornament.bottom-left { bottom: 10px; left: 10px; transform: rotate(180deg); }
-        .ornament.bottom-right { bottom: 10px; right: 10px; transform: scaleX(-1) rotate(180deg); }
-        .ornament.top-left { top: 10px; left: 10px; transform: scaleX(-1); }
+
+        .ornament.top-right {
+            top: 10px;
+            right: 10px;
+        }
+
+        .ornament.bottom-left {
+            bottom: 10px;
+            left: 10px;
+            transform: rotate(180deg);
+        }
+
+        .ornament.bottom-right {
+            bottom: 10px;
+            right: 10px;
+            transform: scaleX(-1) rotate(180deg);
+        }
+
+        .ornament.top-left {
+            top: 10px;
+            left: 10px;
+            transform: scaleX(-1);
+        }
 
         .eyebrow {
             margin: 0 0 10px;
             color: var(--muted);
+            font-family: 'Montserrat', sans-serif;
             font-size: 10px;
             line-height: 1.5;
             letter-spacing: .32em;
@@ -101,11 +133,15 @@
             background: #a39a92;
         }
 
-        .soft-line {
-            border: 0;
-            border-top: 1px solid var(--line);
-            margin: 28px 0;
+        .section-stack {
+            display: grid;
+            gap: 22px;
+            margin-top: 22px;
         }
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: min(760px, 86vh);
@@ -124,13 +160,19 @@
             height: 100%;
             object-fit: cover;
             z-index: -3;
+            background: #b8b0a8;
         }
 
         .hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(20,18,17,.10) 12%, rgba(20,18,17,.18) 48%, rgba(20,18,17,.68) 100%);
+            background: linear-gradient(
+                180deg,
+                rgba(20,18,17,.10) 12%,
+                rgba(20,18,17,.18) 48%,
+                rgba(20,18,17,.68) 100%
+            );
             z-index: -2;
         }
 
@@ -150,6 +192,7 @@
         }
 
         .hero-kicker {
+            font-family: 'Montserrat', sans-serif;
             font-size: 11px;
             letter-spacing: .34em;
             text-transform: uppercase;
@@ -182,16 +225,15 @@
 
         .hero-date {
             margin-top: 10px;
+            font-family: 'Montserrat', sans-serif;
             font-size: 11px;
             letter-spacing: .28em;
             text-transform: uppercase;
         }
 
-        .section-stack {
-            display: grid;
-            gap: 22px;
-            margin-top: 22px;
-        }
+        /* =========================
+           TIPOGRAFÍA
+        ========================= */
 
         .invitation-heading {
             font-family: 'Cormorant Garamond', serif;
@@ -210,40 +252,25 @@
 
         .body-copy {
             color: #6e6660;
+            font-family: 'Montserrat', sans-serif;
             font-size: 13px;
             line-height: 2;
         }
 
-        .detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-            align-items: stretch;
-        }
+        /* =========================
+           UBICACIÓN
+        ========================= */
 
         .mini-card {
             background: rgba(255,255,255,.62);
             border: 1px solid rgba(120,110,100,.11);
             border-radius: 14px;
-            padding: 26px;
+            padding: 30px;
         }
 
-        .map-frame {
-            margin-top: 24px;
-            height: 300px;
-            overflow: hidden;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: #e3ded7;
-        }
-
-        .map-frame iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            display: block;
-            filter: grayscale(.15) saturate(.75) contrast(.95);
-        }
+        /* =========================
+           BOTONES
+        ========================= */
 
         .ghost-button,
         .primary-button {
@@ -253,26 +280,42 @@
             min-height: 48px;
             padding: 0 24px;
             border-radius: 999px;
+            font-family: 'Montserrat', sans-serif;
             font-size: 11px;
             letter-spacing: .18em;
             text-transform: uppercase;
             text-decoration: none;
-            transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+            transition:
+                transform .2s ease,
+                background .2s ease,
+                box-shadow .2s ease;
         }
+
         .ghost-button {
             border: 1px solid #b6aea6;
             color: #5b544e;
             background: transparent;
         }
+
         .primary-button {
             border: 1px solid #4b4540;
             color: #fff;
             background: #4b4540;
             box-shadow: 0 8px 20px rgba(75,69,64,.14);
         }
+
         .ghost-button:hover,
-        .primary-button:hover { transform: translateY(-2px); }
-        .primary-button:hover { background: #38332f; }
+        .primary-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .primary-button:hover {
+            background: #38332f;
+        }
+
+        /* =========================
+           COUNTDOWN
+        ========================= */
 
         .countdown-grid {
             display: grid;
@@ -286,43 +329,64 @@
             text-align: center;
             border-right: 1px solid var(--line);
         }
-        .countdown-item:last-child { border-right: 0; }
+
+        .countdown-item:last-child {
+            border-right: 0;
+        }
+
         .countdown-number {
             display: block;
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(36px, 6vw, 58px);
             line-height: .9;
         }
+
         .countdown-label {
             display: block;
             margin-top: 10px;
             color: var(--muted);
+            font-family: 'Montserrat', sans-serif;
             font-size: 9px;
             letter-spacing: .23em;
             text-transform: uppercase;
         }
 
-        .timeline {
-            margin-top: 28px;
-            display: grid;
-            gap: 14px;
+        /* =========================
+           AGENDA
+        ========================= */
+
+        .agenda {
+            margin: 30px auto 0;
+            max-width: 720px;
+            border-top: 1px solid var(--line);
         }
-        .timeline-row {
+
+        .agenda-row {
             display: grid;
-            grid-template-columns: 92px 1fr;
-            gap: 14px;
+            grid-template-columns: 110px 1fr;
+            gap: 18px;
             align-items: baseline;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--line);
         }
-        .timeline-time {
-            font-size: 10px;
-            letter-spacing: .20em;
+
+        .agenda-time {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: .18em;
             color: var(--muted);
             text-transform: uppercase;
         }
-        .timeline-event {
+
+        .agenda-event {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
+            font-size: 25px;
+            line-height: 1.1;
         }
+
+        /* =========================
+           VESTIMENTA
+        ========================= */
 
         .dress-layout {
             display: grid;
@@ -330,6 +394,7 @@
             gap: 22px;
             align-items: center;
         }
+
         .dress-image {
             width: 100%;
             height: 100%;
@@ -338,6 +403,7 @@
             border-radius: 12px;
             border: 1px solid var(--line);
             display: block;
+            background: #ebe7e1;
         }
 
         .palette-note {
@@ -345,6 +411,10 @@
             padding-left: 16px;
             border-left: 1px solid #9e958c;
         }
+
+        /* =========================
+           REGALOS
+        ========================= */
 
         .gift-icon {
             width: 72px;
@@ -358,6 +428,10 @@
             color: #716960;
             background: rgba(255,255,255,.45);
         }
+
+        /* =========================
+           PASES / CONFIRMACIÓN
+        ========================= */
 
         .passes-card {
             text-align: center;
@@ -380,30 +454,43 @@
             background: #faf2ed;
             color: #7d5d4f;
             border-radius: 999px;
+            font-family: 'Montserrat', sans-serif;
             font-size: 10px;
             line-height: 1.4;
             letter-spacing: .14em;
             text-transform: uppercase;
         }
 
-        .rsvp-grid {
+        .confirmation-grid {
             display: grid;
             grid-template-columns: 1fr 1.15fr;
             gap: 22px;
             align-items: stretch;
         }
 
-        .rsvp-panel {
+        .confirmation-panel {
             padding: 30px;
             background: rgba(255,255,255,.52);
             border: 1px solid rgba(120,110,100,.12);
             border-radius: 14px;
         }
 
-        .rsvp-date {
+        .confirmation-date {
             font-family: 'Cormorant Garamond', serif;
             font-size: 34px;
         }
+
+        .form-instructions {
+            margin-top: 24px;
+            padding: 16px 18px;
+            border-left: 2px solid #9e958c;
+            background: rgba(255,255,255,.45);
+            text-align: left;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             padding: 42px 12px 20px;
@@ -411,288 +498,1087 @@
             color: #786f68;
         }
 
-        .fade-up { animation: fadeUp .8s ease both; }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(14px); }
-            to { opacity: 1; transform: translateY(0); }
+        .fade-up {
+            animation: fadeUp .8s ease both;
         }
 
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
         @media (max-width: 840px) {
+
             .detail-grid,
             .dress-layout,
-            .rsvp-grid { grid-template-columns: 1fr; }
-            .hero { min-height: 740px; }
-            .map-frame { height: 270px; }
+            .confirmation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 740px;
+            }
         }
 
         @media (max-width: 580px) {
-            .page { padding: 10px 10px 40px; }
-            .invitation-card { border-radius: 14px; }
-            .paper-card { padding: 26px 20px; }
-            .paper-card::after { inset: 8px; border-radius: 10px; }
-            .ornament { width: 110px; height: 110px; }
-            .hero-content { padding-bottom: 50px; }
-            .countdown-grid { grid-template-columns: repeat(2, 1fr); }
-            .countdown-item:nth-child(2) { border-right: 0; }
-            .countdown-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-            .timeline-row { grid-template-columns: 76px 1fr; }
+
+            .page {
+                padding: 10px 10px 40px;
+            }
+
+            .invitation-card {
+                border-radius: 14px;
+            }
+
+            .paper-card {
+                padding: 26px 20px;
+            }
+
+            .paper-card::after {
+                inset: 8px;
+                border-radius: 10px;
+            }
+
+            .ornament {
+                width: 110px;
+                height: 110px;
+            }
+
+            .hero-content {
+                padding-bottom: 50px;
+            }
+
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .countdown-item:nth-child(2) {
+                border-right: 0;
+            }
+
+            .countdown-item:nth-child(-n+2) {
+                border-bottom: 1px solid var(--line);
+            }
+
+            .agenda-row {
+                grid-template-columns: 78px 1fr;
+                gap: 12px;
+            }
+
+            .agenda-event {
+                font-size: 22px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .fade-up { animation: none; }
-            .ghost-button, .primary-button { transition: none; }
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .fade-up {
+                animation: none;
+            }
+
+            .ghost-button,
+            .primary-button {
+                transition: none;
+            }
         }
     </style>
 </head>
+
 <body class="antialiased">
 
 <main class="page">
 
-    <!-- 1. PORTADA CON VIDEO DE FONDO -->
-    <section class="invitation-card hero fade-up" aria-label="Portada de la invitación">
-        <video autoplay loop muted playsinline preload="metadata" aria-hidden="true">
-            <source src="https://drive.google.com/uc?export=download&amp;id=1WBxstxnW6g1w1TfVLw1amr1aD8liTDSI" type="video/mp4">
+    <!-- =========================================================
+         1. PORTADA
+         ========================================================= -->
+
+    <section class="invitation-card hero fade-up"
+             aria-label="Portada de la invitación">
+
+        <!--
+            VIDEO LOCAL
+
+            Debe existir:
+            assets/video/boda.mp4
+
+            Imagen de respaldo:
+            assets/images/hero-poster.jpg
+        -->
+
+        <video id="heroVideo"
+               autoplay
+               loop
+               muted
+               playsinline
+               preload="auto"
+               poster="assets/images/hero-poster.jpg"
+               aria-hidden="true">
+
+            <source src="assets/video/boda.mp4"
+                    type="video/mp4">
+
+            Tu navegador no admite video HTML5.
         </video>
+
         <div class="hero-content">
-            <p class="hero-kicker">Una celebración para compartir</p>
-            <div class="hero-save">SAVE</div>
-            <div class="hero-script">our date</div>
-            <div class="hero-names">Odalis &amp; Andersson</div>
-            <div class="hairline" style="background:rgba(255,255,255,.6)"></div>
-            <p class="hero-date">22 de noviembre de 2026 · 9:00 AM</p>
+
+            <p class="hero-kicker">
+                Una celebración para compartir
+            </p>
+
+            <div class="hero-save">
+                SAVE
+            </div>
+
+            <div class="hero-script">
+                our date
+            </div>
+
+            <div class="hero-names">
+                Odalis &amp; Andersson
+            </div>
+
+            <div class="hairline"
+                 style="background:rgba(255,255,255,.6)">
+            </div>
+
+            <p class="hero-date">
+                22 de noviembre de 2026 · 9:00 AM
+            </p>
+
         </div>
     </section>
 
+
     <div class="section-stack">
 
-        <!-- 2. INVITACIÓN FORMAL Y LUGAR -->
+
+        <!-- =====================================================
+             2. INVITACIÓN + UBICACIÓN
+             ===================================================== -->
+
         <section class="invitation-card paper-card fade-up">
-            <svg class="ornament top-right" viewBox="0 0 140 140" fill="none" aria-hidden="true">
-                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
-                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
-                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
-                <path d="M38 105c-10-2-18-7-22-14 9-1 17 3 22 14Z" stroke="currentColor"/>
+
+            <svg class="ornament top-right"
+                 viewBox="0 0 140 140"
+                 fill="none"
+                 aria-hidden="true">
+
+                <path d="M18 116C63 95 88 57 109 16"
+                      stroke="currentColor"
+                      stroke-width="1.1"/>
+
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z"
+                      stroke="currentColor"/>
+
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z"
+                      stroke="currentColor"/>
+
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z"
+                      stroke="currentColor"/>
+
+                <path d="M38 105c-10-2-18-7-22-14 9-1 17 3 22 14Z"
+                      stroke="currentColor"/>
             </svg>
-            <svg class="ornament bottom-left" viewBox="0 0 140 140" fill="none" aria-hidden="true">
-                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
-                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
-                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
-                <path d="M38 105c-10-2-18-7-22-14 9-1 17 3 22 14Z" stroke="currentColor"/>
+
+
+            <svg class="ornament bottom-left"
+                 viewBox="0 0 140 140"
+                 fill="none"
+                 aria-hidden="true">
+
+                <path d="M18 116C63 95 88 57 109 16"
+                      stroke="currentColor"
+                      stroke-width="1.1"/>
+
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z"
+                      stroke="currentColor"/>
+
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z"
+                      stroke="currentColor"/>
+
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z"
+                      stroke="currentColor"/>
+
+                <path d="M38 105c-10-2-18-7-22-14 9-1 17 3 22 14Z"
+                      stroke="currentColor"/>
             </svg>
+
 
             <div class="relative z-10 max-w-4xl mx-auto text-center">
-                <p class="eyebrow">Junto a nuestras familias</p>
-                <div class="script-heading">tenemos el honor</div>
-                <div class="invitation-heading mt-3">de invitarte</div>
-                <div class="hairline"></div>
-                <p class="body-copy max-w-2xl mx-auto">
-                    Con la bendición de Dios y de nuestras familias, tenemos el honor y la inmensa alegría de invitarte a celebrar el inicio de nuestra nueva vida juntos.
+
+                <p class="eyebrow">
+                    Junto a nuestras familias
                 </p>
 
-                <div class="my-12">
-                    <p class="eyebrow">Los novios</p>
-                    <h2 class="font-editorial text-4xl md:text-5xl font-medium tracking-[.08em] uppercase">Odalis Molina &amp; Andersson Sorto</h2>
-                    <div class="hairline"></div>
-                    <p class="font-editorial text-2xl md:text-3xl">Domingo 22 de noviembre de 2026</p>
-                    <p class="body-copy mt-2">9:00 AM</p>
+                <div class="script-heading">
+                    tenemos el honor
                 </div>
 
-                <div class="detail-grid text-left">
-                    <div class="mini-card">
-                        <p class="eyebrow">Ceremonia &amp; recepción</p>
-                        <h3 class="font-editorial text-3xl">ALBACLARA</h3>
-                        <p class="body-copy mt-3">Un espacio para celebrar este día junto a las personas que más queremos.</p>
-                        <a href="https://waze.com/ul?ll=13.624748644449308,-89.17216126204593&amp;navigate=yes" target="_blank" rel="noopener" class="ghost-button mt-6">Abrir en Waze</a>
-                    </div>
-                    <div class="mini-card">
-                        <p class="eyebrow">Ubicación</p>
-                        <p class="body-copy">Encuentra la sede y planifica tu llegada con el mapa.</p>
-                        <div class="map-frame">
-                            <iframe src="https://maps.google.com/maps?q=13.624748644449308,-89.17216126204593&amp;hl=es&amp;z=16&amp;output=embed" title="Mapa de Albaclara" loading="lazy" allowfullscreen></iframe>
-                        </div>
-                    </div>
+                <div class="invitation-heading mt-3">
+                    de invitarte
                 </div>
-            </div>
-        </section>
 
-        <!-- 3. CUENTA REGRESIVA -->
-        <section class="invitation-card paper-card fade-up">
-            <svg class="ornament top-left" viewBox="0 0 140 140" fill="none" aria-hidden="true">
-                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
-                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
-                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
-            </svg>
-            <div class="relative z-10 text-center">
-                <p class="script-heading">cada vez falta menos</p>
-                <h2 class="invitation-heading mt-3">para nuestro día</h2>
                 <div class="hairline"></div>
-                <div id="countdown" class="countdown-grid max-w-3xl mx-auto">
-                    <div class="countdown-item"><span id="days" class="countdown-number">00</span><span class="countdown-label">Días</span></div>
-                    <div class="countdown-item"><span id="hours" class="countdown-number">00</span><span class="countdown-label">Horas</span></div>
-                    <div class="countdown-item"><span id="minutes" class="countdown-number">00</span><span class="countdown-label">Minutos</span></div>
-                    <div class="countdown-item"><span id="seconds" class="countdown-number">00</span><span class="countdown-label">Segundos</span></div>
+
+                <p class="body-copy max-w-2xl mx-auto">
+                    Con la bendición de Dios y de nuestras familias,
+                    tenemos el honor y la inmensa alegría de invitarte
+                    a celebrar el inicio de nuestra nueva vida juntos.
+                </p>
+
+
+                <div class="my-12">
+
+                    <p class="eyebrow">
+                        Los novios
+                    </p>
+
+                    <h2 class="font-editorial text-4xl md:text-5xl font-medium tracking-[.08em] uppercase">
+                        Odalis Molina &amp; Andersson Sorto
+                    </h2>
+
+                    <div class="hairline"></div>
+
+                    <p class="font-editorial text-2xl md:text-3xl">
+                        Domingo 22 de noviembre de 2026
+                    </p>
+
+                    <p class="body-copy mt-2">
+                        9:00 AM
+                    </p>
+
                 </div>
 
-                <div class="max-w-xl mx-auto mt-10 text-left">
-                    <p class="eyebrow text-center">Nuestro primer momento del día</p>
-                    <div class="timeline">
-                        <div class="timeline-row">
-                            <div class="timeline-time">09:00 AM</div>
-                            <div class="timeline-event">Ceremonia</div>
-                        </div>
-                        <div class="timeline-row">
-                            <div class="timeline-time">ALBACLARA</div>
-                            <div class="timeline-event">Celebración junto a nuestras familias y amigos</div>
-                        </div>
-                    </div>
+
+                <!-- SOLO WAZE -->
+
+                <div class="mini-card max-w-2xl mx-auto text-center">
+
+                    <p class="eyebrow">
+                        Ceremonia &amp; recepción
+                    </p>
+
+                    <h3 class="font-editorial text-3xl">
+                        ALBACLARA
+                    </h3>
+
+                    <p class="body-copy mt-3">
+                        La celebración tendrá lugar en Albaclara.
+                        Usa el botón para abrir la ubicación directamente en Waze.
+                    </p>
+
+                    <a href="https://waze.com/ul?ll=13.624748644449308,-89.17216126204593&amp;navigate=yes"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="ghost-button mt-6">
+
+                        Abrir ubicación en Waze
+
+                    </a>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- 4. CÓDIGO DE VESTIMENTA -->
+
+
+        <!-- =====================================================
+             3. CUENTA REGRESIVA
+             ===================================================== -->
+
         <section class="invitation-card paper-card fade-up">
-            <svg class="ornament bottom-right" viewBox="0 0 140 140" fill="none" aria-hidden="true">
-                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
-                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
-                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
+
+            <svg class="ornament top-left"
+                 viewBox="0 0 140 140"
+                 fill="none"
+                 aria-hidden="true">
+
+                <path d="M18 116C63 95 88 57 109 16"
+                      stroke="currentColor"
+                      stroke-width="1.1"/>
+
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z"
+                      stroke="currentColor"/>
+
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z"
+                      stroke="currentColor"/>
+
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z"
+                      stroke="currentColor"/>
+
             </svg>
+
+
+            <div class="relative z-10 text-center">
+
+                <p class="script-heading">
+                    cada vez falta menos
+                </p>
+
+                <h2 class="invitation-heading mt-3">
+                    para nuestro día
+                </h2>
+
+                <div class="hairline"></div>
+
+
+                <div id="countdown"
+                     class="countdown-grid max-w-3xl mx-auto"
+                     aria-live="polite">
+
+                    <div class="countdown-item">
+                        <span id="days"
+                              class="countdown-number">
+                            00
+                        </span>
+
+                        <span class="countdown-label">
+                            Días
+                        </span>
+                    </div>
+
+
+                    <div class="countdown-item">
+                        <span id="hours"
+                              class="countdown-number">
+                            00
+                        </span>
+
+                        <span class="countdown-label">
+                            Horas
+                        </span>
+                    </div>
+
+
+                    <div class="countdown-item">
+                        <span id="minutes"
+                              class="countdown-number">
+                            00
+                        </span>
+
+                        <span class="countdown-label">
+                            Minutos
+                        </span>
+                    </div>
+
+
+                    <div class="countdown-item">
+                        <span id="seconds"
+                              class="countdown-number">
+                            00
+                        </span>
+
+                        <span class="countdown-label">
+                            Segundos
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             4. AGENDA
+             ===================================================== -->
+
+        <section class="invitation-card paper-card fade-up">
+
+            <svg class="ornament bottom-right"
+                 viewBox="0 0 140 140"
+                 fill="none"
+                 aria-hidden="true">
+
+                <path d="M18 116C63 95 88 57 109 16"
+                      stroke="currentColor"
+                      stroke-width="1.1"/>
+
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z"
+                      stroke="currentColor"/>
+
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z"
+                      stroke="currentColor"/>
+
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z"
+                      stroke="currentColor"/>
+
+            </svg>
+
+
+            <div class="relative z-10 text-center max-w-3xl mx-auto">
+
+                <p class="eyebrow">
+                    El gran día
+                </p>
+
+                <div class="script-heading">
+                    nuestro itinerario
+                </div>
+
+                <h2 class="invitation-heading mt-3">
+                    Agenda
+                </h2>
+
+                <div class="hairline"></div>
+
+
+                <div class="agenda text-left"
+                     aria-label="Agenda de la boda">
+
+
+                    <div class="agenda-row">
+
+                        <div class="agenda-time">
+                            9:00
+                        </div>
+
+                        <div class="agenda-event">
+                            Ceremonia y votos
+                        </div>
+
+                    </div>
+
+
+                    <div class="agenda-row">
+
+                        <div class="agenda-time">
+                            10:00
+                        </div>
+
+                        <div class="agenda-event">
+                            Fotos y cóctel
+                        </div>
+
+                    </div>
+
+
+                    <div class="agenda-row">
+
+                        <div class="agenda-time">
+                            10:30
+                        </div>
+
+                        <div class="agenda-event">
+                            Bailes y brindis
+                        </div>
+
+                    </div>
+
+
+                    <div class="agenda-row">
+
+                        <div class="agenda-time">
+                            11:15
+                        </div>
+
+                        <div class="agenda-event">
+                            Almuerzo
+                        </div>
+
+                    </div>
+
+
+                    <div class="agenda-row">
+
+                        <div class="agenda-time">
+                            12:15
+                        </div>
+
+                        <div class="agenda-event">
+                            Lanzamiento de ramo
+                        </div>
+
+                    </div>
+
+
+                    <div class="agenda-row">
+
+                        <div class="agenda-time">
+                            12:30
+                        </div>
+
+                        <div class="agenda-event">
+                            Pastel
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             5. CÓDIGO DE VESTIMENTA
+             ===================================================== -->
+
+        <section class="invitation-card paper-card fade-up">
+
+            <svg class="ornament bottom-right"
+                 viewBox="0 0 140 140"
+                 fill="none"
+                 aria-hidden="true">
+
+                <path d="M18 116C63 95 88 57 109 16"
+                      stroke="currentColor"
+                      stroke-width="1.1"/>
+
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z"
+                      stroke="currentColor"/>
+
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z"
+                      stroke="currentColor"/>
+
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z"
+                      stroke="currentColor"/>
+
+            </svg>
+
 
             <div class="relative z-10 dress-layout">
+
                 <div>
-                    <p class="eyebrow">Código de vestimenta</p>
-                    <div class="script-heading">ven a celebrar</div>
-                    <h2 class="invitation-heading mt-3">COCKTAIL</h2>
-                    <div class="hairline" style="margin-left:0"></div>
-                    <p class="body-copy">Te sugerimos inspirarte en tonos alegres y vibrantes para acompañar el espíritu de nuestra celebración.</p>
+
+                    <p class="eyebrow">
+                        Código de vestimenta
+                    </p>
+
+                    <div class="script-heading">
+                        ven a celebrar
+                    </div>
+
+                    <h2 class="invitation-heading mt-3">
+                        COCKTAIL
+                    </h2>
+
+                    <div class="hairline"
+                         style="margin-left:0">
+                    </div>
+
+                    <p class="body-copy">
+                        Te sugerimos inspirarte en tonos alegres y vibrantes
+                        para acompañar el espíritu de nuestra celebración.
+                    </p>
+
 
                     <div class="palette-note">
-                        <p class="text-xs uppercase tracking-[.18em] text-[#665f59] font-semibold">Importante</p>
-                        <p class="body-copy mt-2">Por favor, evitar el uso de color blanco o tonos beige en mujeres.</p>
+
+                        <p class="font-sans text-xs uppercase tracking-[.18em] text-[#665f59] font-semibold">
+                            Importante
+                        </p>
+
+                        <p class="body-copy mt-2">
+                            Por favor, evitar el uso de color blanco
+                            o tonos beige en mujeres.
+                        </p>
+
                     </div>
+
                 </div>
+
+
+                <!-- IMAGEN LOCAL -->
+
                 <div>
-                    <img src="https://drive.google.com/uc?export=view&amp;id=1Mt2XzboyoH8hJrmcrw0Hzg0rxeKTyYPN" alt="Paleta de colores sugerida para el código de vestimenta" class="dress-image">
+
+                    <img src="assets/images/paleta-colores.jpg"
+                         alt="Paleta de colores sugerida para el código de vestimenta"
+                         class="dress-image"
+                         loading="lazy">
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- 5. MESA DE REGALOS -->
+
+
+        <!-- =====================================================
+             6. MESA DE REGALOS
+             ===================================================== -->
+
         <section class="invitation-card paper-card fade-up text-center">
-            <p class="eyebrow">Un pequeño detalle</p>
-            <div class="script-heading">con mucho cariño</div>
-            <h2 class="invitation-heading mt-3">Mesa de Regalos</h2>
-            <div class="hairline"></div>
-            <div class="gift-icon" aria-hidden="true">✉</div>
-            <p class="body-copy max-w-2xl mx-auto">
-                Nuestra mayor alegría es contar con tu compañía en este día tan especial. Si deseas tener un detalle adicional con nosotros, te agradeceríamos infinitamente que sea en forma de <strong class="text-[#4f4944]">regalo de sobre</strong>.
+
+            <p class="eyebrow">
+                Un pequeño detalle
             </p>
+
+            <div class="script-heading">
+                con mucho cariño
+            </div>
+
+            <h2 class="invitation-heading mt-3">
+                Mesa de Regalos
+            </h2>
+
+            <div class="hairline"></div>
+
+            <div class="gift-icon"
+                 aria-hidden="true">
+                ✉
+            </div>
+
+            <p class="body-copy max-w-2xl mx-auto">
+                Nuestra mayor alegría es contar con tu compañía
+                en este día tan especial. Si deseas tener un detalle
+                adicional con nosotros, te agradeceríamos infinitamente
+                que sea en forma de <strong class="text-[#4f4944]">
+                regalo de sobre</strong>.
+            </p>
+
         </section>
 
-        <!-- 6 & 7. INFORMACIÓN ADICIONAL + RSVP -->
+
+
+        <!-- =====================================================
+             7. INFORMACIÓN + CONFIRMACIÓN
+             ===================================================== -->
+
         <section class="invitation-card paper-card fade-up">
-            <svg class="ornament top-right" viewBox="0 0 140 140" fill="none" aria-hidden="true">
-                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
-                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
-                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
+
+            <svg class="ornament top-right"
+                 viewBox="0 0 140 140"
+                 fill="none"
+                 aria-hidden="true">
+
+                <path d="M18 116C63 95 88 57 109 16"
+                      stroke="currentColor"
+                      stroke-width="1.1"/>
+
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z"
+                      stroke="currentColor"/>
+
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z"
+                      stroke="currentColor"/>
+
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z"
+                      stroke="currentColor"/>
+
             </svg>
 
+
             <div class="relative z-10">
-                <div class="rsvp-grid">
+
+                <div class="confirmation-grid">
+
+
+                    <!-- INFORMACIÓN -->
+
                     <div>
-                        <p class="eyebrow">Información adicional</p>
-                        <div class="script-heading">hemos reservado un lugar</div>
-                        <h2 class="invitation-heading mt-3">especial para ti</h2>
-                        <div class="hairline" style="margin-left:0"></div>
+
+                        <p class="eyebrow">
+                            Información adicional
+                        </p>
+
+                        <div class="script-heading">
+                            hemos reservado un lugar
+                        </div>
+
+                        <h2 class="invitation-heading mt-3">
+                            especial para ti
+                        </h2>
+
+                        <div class="hairline"
+                             style="margin-left:0">
+                        </div>
+
 
                         <div class="passes-card">
-                            <p class="eyebrow">Pases asignados</p>
-                            <p id="mensaje-pases" class="passes-value">Cargando detalles...</p>
-                            <p class="body-copy text-sm mt-2">Rogamos respetar los espacios reservados.</p>
+
+                            <p class="eyebrow">
+                                Pases asignados
+                            </p>
+
+                            <p id="mensaje-pases"
+                               class="passes-value">
+                                Cargando detalles...
+                            </p>
+
+                            <p class="body-copy text-sm mt-2">
+                                Rogamos respetar los espacios reservados.
+                            </p>
+
                         </div>
+
 
                         <div class="mt-6 text-center">
-                            <span class="notice">Evento estrictamente para adultos · No se permiten niños</span>
+
+                            <span class="notice">
+                                Evento estrictamente para adultos
+                                · No se permiten niños
+                            </span>
+
                         </div>
+
                     </div>
 
-                    <div class="rsvp-panel text-center">
-                        <p class="eyebrow">Confirmación</p>
-                        <div class="script-heading">esperamos celebrar contigo</div>
-                        <h2 class="invitation-heading mt-3">RSVP</h2>
+
+
+                    <!-- CONFIRMACIÓN -->
+
+                    <div class="confirmation-panel text-center">
+
+                        <p class="eyebrow">
+                            Confirmación
+                        </p>
+
+                        <div class="script-heading">
+                            esperamos celebrar contigo
+                        </div>
+
+                        <h2 class="invitation-heading mt-3">
+                            Asistencia
+                        </h2>
+
                         <div class="hairline"></div>
-                        <p class="body-copy">Te pedimos de favor confirmar tu asistencia antes del</p>
-                        <p class="rsvp-date mt-2">30 de septiembre</p>
-                        <p class="body-copy mt-3 max-w-md mx-auto">Tu confirmación nos ayuda a cuidar cada detalle de este día.</p>
 
-                        <a href="https://forms.gle/oC4stJWESssFZC7aA" target="_blank" rel="noopener" class="primary-button mt-8">Confirmar asistencia</a>
+
+                        <p class="body-copy">
+                            Te pedimos de favor confirmar tu asistencia
+                            antes del
+                        </p>
+
+
+                        <p class="confirmation-date mt-2">
+                            30 de septiembre
+                        </p>
+
+
+                        <div id="form-instructions"
+                             class="form-instructions"
+                             aria-live="polite">
+
+                            <p class="body-copy m-0">
+                                Completa el formulario de confirmación
+                                según la cantidad de invitados asignados
+                                a esta invitación.
+                            </p>
+
+                        </div>
+
+
+                        <a href="https://forms.gle/oC4stJWESssFZC7aA"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="primary-button mt-8">
+
+                            Confirmar asistencia
+
+                        </a>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
     </div>
 
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
     <footer>
-        <p class="font-script text-4xl text-[#6b625b]">Odalis &amp; Andersson</p>
-        <p class="text-[10px] uppercase tracking-[.24em] mt-3">22 · 11 · 2026</p>
+
+        <p class="font-script text-4xl text-[#6b625b]">
+            Odalis &amp; Andersson
+        </p>
+
+        <p class="font-sans text-[10px] uppercase tracking-[.24em] mt-3">
+            22 · 11 · 2026
+        </p>
+
     </footer>
+
 </main>
 
+
+
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // SCRIPT 1: LÓGICA DE LOS PASES (Lee la URL)
-        const urlParams = new URLSearchParams(window.location.search);
-        const pases = urlParams.get('pases');
-        const mensajePases = document.getElementById('mensaje-pases');
 
-        if (pases) {
-            const cantidad = Number.parseInt(pases, 10);
-            if (Number.isFinite(cantidad) && cantidad > 0) {
-                const textoAsiento = cantidad === 1 ? 'espacio reservado' : 'espacios reservados';
-                mensajePases.innerHTML = `Tenemos <strong>${cantidad} ${textoAsiento}</strong> para ti`;
-            } else {
-                mensajePases.textContent = 'Tenemos espacios reservados para ti';
-            }
-        } else {
-            mensajePases.textContent = 'Tenemos espacios reservados para ti';
+document.addEventListener("DOMContentLoaded", function() {
+
+
+    /* =========================================================
+       1. PASES DINÁMICOS
+       ========================================================= */
+
+    const urlParams =
+        new URLSearchParams(window.location.search);
+
+    const pasesParam =
+        urlParams.get('pases');
+
+    const mensajePases =
+        document.getElementById('mensaje-pases');
+
+    const formInstructions =
+        document.getElementById('form-instructions');
+
+
+    const cantidad =
+        Number.parseInt(pasesParam, 10);
+
+
+    if (
+        Number.isFinite(cantidad) &&
+        cantidad > 0
+    ) {
+
+        const textoEspacios =
+            cantidad === 1
+                ? 'espacio reservado'
+                : 'espacios reservados';
+
+
+        mensajePases.innerHTML =
+            `Tenemos <strong>${cantidad}
+            ${textoEspacios}</strong> para ti`;
+
+
+        const veces =
+            cantidad === 1
+                ? '1 vez'
+                : `${cantidad} veces`;
+
+
+        const invitados =
+            cantidad === 1
+                ? '1 invitado'
+                : `${cantidad} invitados`;
+
+
+        formInstructions.innerHTML = `
+
+            <p class="body-copy m-0">
+
+                Esta invitación corresponde a
+                <strong>${invitados}</strong>.
+
+                Por favor, completa el formulario
+                <strong>${veces}</strong>,
+                una vez por cada invitado.
+
+            </p>
+
+        `;
+
+    } else {
+
+        mensajePases.textContent =
+            'Tenemos espacios reservados para ti';
+
+
+        formInstructions.innerHTML = `
+
+            <p class="body-copy m-0">
+
+                Completa el formulario de confirmación
+                una vez por cada invitado correspondiente
+                a esta invitación.
+
+            </p>
+
+        `;
+
+    }
+
+
+
+    /* =========================================================
+       2. CUENTA REGRESIVA
+       ========================================================= */
+
+    const countDownDate =
+        new Date(
+            "2026-11-22T09:00:00-06:00"
+        ).getTime();
+
+
+    const countdown =
+        document.getElementById("countdown");
+
+
+    let timer;
+
+
+    function updateCountdown() {
+
+        const now =
+            new Date().getTime();
+
+
+        const distance =
+            countDownDate - now;
+
+
+        if (distance <= 0) {
+
+            clearInterval(timer);
+
+
+            countdown.innerHTML =
+                "<div class='text-2xl md:text-3xl font-editorial py-8 text-[#403c38]'>" +
+                "¡Llegó el gran día!" +
+                "</div>";
+
+            return;
         }
 
-        // SCRIPT 2: CUENTA REGRESIVA
-        // Hora local del evento: 22 de noviembre de 2026 a las 09:00.
-        const countDownDate = new Date("2026-11-22T09:00:00-06:00").getTime();
-        const countdown = document.getElementById("countdown");
-        let timer;
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
+        const days =
+            Math.floor(
+                distance /
+                (1000 * 60 * 60 * 24)
+            );
 
-            if (distance <= 0) {
-                clearInterval(timer);
-                countdown.innerHTML = "<div class='text-2xl md:text-3xl font-editorial py-8 text-[#403c38]'>¡Llegó el gran día!</div>";
-                return;
+
+        const hours =
+            Math.floor(
+                (distance %
+                (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (distance %
+                (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (distance %
+                (1000 * 60)) /
+                1000
+            );
+
+
+        document.getElementById("days")
+            .textContent =
+            String(days)
+                .padStart(2, '0');
+
+
+        document.getElementById("hours")
+            .textContent =
+            String(hours)
+                .padStart(2, '0');
+
+
+        document.getElementById("minutes")
+            .textContent =
+            String(minutes)
+                .padStart(2, '0');
+
+
+        document.getElementById("seconds")
+            .textContent =
+            String(seconds)
+                .padStart(2, '0');
+
+    }
+
+
+    updateCountdown();
+
+    timer =
+        setInterval(
+            updateCountdown,
+            1000
+        );
+
+
+
+    /* =========================================================
+       3. AUTOPLAY DEL VIDEO
+       ========================================================= */
+
+    const heroVideo =
+        document.getElementById('heroVideo');
+
+
+    if (heroVideo) {
+
+        heroVideo.muted = true;
+
+        heroVideo.defaultMuted = true;
+
+
+        const tryPlay = () => {
+
+            const promise =
+                heroVideo.play();
+
+
+            if (
+                promise &&
+                typeof promise.catch === 'function'
+            ) {
+
+                promise.catch(() => {
+
+                    /*
+                     Algunos navegadores pueden bloquear
+                     el autoplay.
+
+                     En ese caso permanece visible el
+                     hero-poster.jpg como respaldo.
+                    */
+
+                });
+
             }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        };
 
-            document.getElementById("days").textContent = String(days).padStart(2, '0');
-            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-        }
 
-        updateCountdown();
-        timer = setInterval(updateCountdown, 1000);
-    });
+        tryPlay();
+
+
+        window.addEventListener(
+            'pageshow',
+            tryPlay,
+            { once: true }
+        );
+
+    }
+
+});
+
 </script>
 
 </body>
