@@ -4,39 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Odalis y Andersson</title>
-    <!-- Usamos Tailwind CSS para un diseño elegante sin necesidad de archivos extra -->
+    <!-- Tailwind CSS para diseño -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fuentes elegantes de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Fuentes elegantes de Google Fonts (Enlaces corregidos para VS Code) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Montserrat', sans-serif; background-color: #faf8f5; color: #333; }
         h1, h2, h3, .font-elegant { font-family: 'Playfair Display', serif; }
-        
-        /* Imagen de fondo (puedes cambiar la URL por una foto de ustedes más adelante) */
-        .hero-bg {
-            background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .overlay { background-color: rgba(0, 0, 0, 0.35); }
+        .overlay { background-color: rgba(0, 0, 0, 0.45); }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- SECCIÓN 1: PORTADA -->
-    <section class="hero-bg h-screen relative flex items-center justify-center text-white text-center">
-        <div class="absolute inset-0 overlay"></div>
-        <div class="relative z-10 px-4">
-            <h3 class="text-xl md:text-2xl uppercase tracking-widest mb-4">¡Nos Casamos!</h3>
-            <h1 class="font-elegant text-5xl md:text-7xl mb-6">Odalis & Andersson</h1>
-            <p class="text-lg md:text-2xl mb-8">22 de Noviembre de 2026 • 9:30 AM</p>
+    <!-- 1. PORTADA CON VIDEO DE FONDO -->
+    <section class="relative h-screen flex items-center justify-center text-white text-center overflow-hidden">
+        <!-- Video desde Google Drive (Enlace corregido para VS Code) -->
+        <video autoplay loop muted playsinline class="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover">
+            <source src="https://drive.google.com/uc?export=download&amp;id=1WBxstxnW6g1w1TfVLw1amr1aD8liTDSI" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 overlay z-10"></div>
+        <div class="relative z-20 px-4">
+            <p class="text-xl md:text-2xl italic mb-6 font-light">"Dos almas, un solo corazón, y un amor para toda la vida"</p>
+            <h1 class="font-elegant text-5xl md:text-7xl mb-6">Odalis &amp; Andersson</h1>
+            <p class="text-lg md:text-2xl tracking-widest uppercase">22 de Noviembre de 2026</p>
         </div>
     </section>
 
-    <!-- SECCIÓN 2: CUENTA REGRESIVA -->
-    <section class="py-16 bg-white text-center shadow-sm relative z-20">
-        <h2 class="font-elegant text-4xl mb-10 text-gray-800">Faltan...</h2>
+    <!-- 2. INVITACIÓN FORMAL Y LUGAR -->
+    <section class="py-20 bg-white text-center px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-elegant text-4xl text-gray-800 mb-6">Nuestra Boda</h2>
+            <p class="text-lg text-gray-600 mb-10 leading-relaxed">Con la bendición de Dios y de nuestras familias, tenemos el honor y la inmensa alegría de invitarte a celebrar el inicio de nuestra nueva vida juntos.</p>
+            
+            <h3 class="font-elegant text-3xl md:text-4xl text-gray-800 mb-4">Odalis Molina &amp; Andersson Sorto</h3>
+            <p class="text-xl text-gray-700 font-semibold mb-2">Domingo 22 de Noviembre del 2026</p>
+            <p class="text-lg text-gray-600 mb-8">9:00 AM</p>
+            
+            <p class="text-2xl font-elegant text-gray-800 mb-4">Lugar de la Recepción: ALBACLARA</p>
+            
+            <div class="w-full h-72 md:h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg mb-8">
+                <!-- Enlace de mapa corregido -->
+                <iframe src="https://maps.google.com/maps?q=13.624748644449308,-89.17216126204593&amp;hl=es&amp;z=16&amp;output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <!-- Enlace de Waze corregido -->
+            <a href="https://waze.com/ul?ll=13.624748644449308,-89.17216126204593&amp;navigate=yes" target="_blank" class="inline-block px-10 py-4 bg-gray-800 text-white rounded-full font-semibold hover:bg-gray-700 transition shadow-md">
+                📍 Abrir ruta a Albaclara en Waze
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. CUENTA REGRESIVA -->
+    <section class="py-16 bg-[#faf8f5] text-center shadow-inner relative z-20">
+        <h2 class="font-elegant text-4xl mb-10 text-gray-800">El gran día comienza en...</h2>
         <div id="countdown" class="flex justify-center gap-6 md:gap-12 text-gray-700">
             <div class="flex flex-col items-center"><span id="days" class="text-4xl md:text-5xl font-elegant">00</span><span class="text-xs md:text-sm uppercase tracking-wider mt-2">Días</span></div>
             <div class="flex flex-col items-center"><span id="hours" class="text-4xl md:text-5xl font-elegant">00</span><span class="text-xs md:text-sm uppercase tracking-wider mt-2">Horas</span></div>
@@ -45,77 +65,103 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 3: NUESTRO VIDEO -->
-    <section class="py-20 bg-[#faf8f5] px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="font-elegant text-4xl mb-8 text-gray-800">Nuestra Historia</h2>
-            <div class="w-full bg-gray-200 rounded-lg overflow-hidden shadow-xl" style="position: relative; padding-bottom: 56.25%; height: 0;">
-                <!-- Cuando tengan su video en YouTube, solo deben cambiar este enlace 'src' -->
-            <iframe src="https://www.youtube.com/embed/BwM5DOG__OQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>    
+    <!-- 4. CÓDIGO DE VESTIMENTA -->
+    <section class="py-20 bg-white text-center px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-elegant text-4xl text-gray-800 mb-6">Código de Vestimenta</h2>
+            <p class="text-3xl text-[#d4af37] font-semibold mb-6 font-elegant tracking-wide">Cocktail</p>
+            
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8 shadow-sm">
+                <p class="text-lg text-gray-800 font-semibold mb-2">Paleta de Colores</p>
+                <p class="text-gray-600 mb-4">Te sugerimos inspirarte en tonos alegres y vibrantes.</p>
+                <p class="text-red-500 font-semibold uppercase tracking-wider text-sm mb-6">Por favor, evitar el uso de color blanco o tonos beige en mujeres.</p>
+                
+                <!-- Enlace de imagen corregido -->
+                <img src="https://drive.google.com/uc?export=view&amp;id=1Mt2XzboyoH8hJrmcrw0Hzg0rxeKTyYPN" alt="Paleta de colores sugerida" class="mx-auto rounded-lg shadow-md max-w-full h-auto" style="max-height: 400px;">
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 4: UBICACIÓN Y MAPA -->
+    <!-- 5. MESA DE REGALOS -->
+    <section class="py-20 bg-[#faf8f5] text-center px-4">
+        <h2 class="font-elegant text-4xl text-gray-800 mb-6">Mesa de Regalos</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6 leading-relaxed">Nuestra mayor alegría es contar con tu compañía en este día tan especial. Si deseas tener un detalle adicional con nosotros, te agradeceríamos infinitamente que sea en forma de <strong>regalo de sobre</strong>.</p>
+        <div class="text-6xl mt-4">✉️</div>
+    </section>
+
+    <!-- 6 & 7. CONFIRMACIÓN E INFORMACIÓN ADICIONAL -->
     <section class="py-20 bg-white px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="font-elegant text-4xl mb-8 text-gray-800">Cuándo y Dónde</h2>
-            <p class="mb-2 text-xl font-semibold">Domingo, 22 de Noviembre de 2026 a las 9:30 AM</p>
-            <p class="mb-8 text-gray-600 text-lg">Te esperamos con mucha alegría para celebrar juntos.</p>
+        <div class="max-w-2xl mx-auto bg-[#faf8f5] p-8 md:p-12 rounded-xl shadow-lg border border-gray-200 text-center">
             
-            <div class="w-full h-72 md:h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg mb-10">
-                <iframe src="https://maps.google.com/maps?q=13.624748644449308,-89.17216126204593&hl=es&z=16&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <!-- Bloque Dinámico de Pases Reservados -->
+            <div id="contenedor-pases" class="bg-white p-6 rounded-lg mb-8 shadow-sm border border-gray-100">
+                <p class="text-gray-500 text-sm uppercase tracking-widest mb-2">Pases Asignados</p>
+                <p id="mensaje-pases" class="text-2xl md:text-3xl text-gray-800 font-elegant font-semibold">Cargando detalles...</p>
+                <p class="text-sm text-gray-500 mt-2">Rogamos respetar los espacios reservados.</p>
             </div>
             
-            <a href="https://waze.com/ul?ll=13.624748644449308,-89.17216126204593&navigate=yes" target="_blank" class="inline-block px-10 py-4 bg-gray-800 text-white rounded-full font-semibold hover:bg-gray-700 transition shadow-md">
-                📍 Abrir ruta en Waze
+            <!-- Información Importante -->
+            <div class="mb-10">
+                <h3 class="font-elegant text-2xl text-gray-800 mb-3">Información Importante</h3>
+                <p class="text-md text-red-600 font-bold uppercase tracking-wide bg-red-50 py-2 px-4 rounded inline-block">Evento estrictamente para adultos. No se permiten niños.</p>
+            </div>
+            
+            <hr class="mb-10 border-gray-300">
+            
+            <!-- Confirmación RSVP -->
+            <h3 class="font-elegant text-3xl text-gray-800 mb-4">Confirmar Asistencia</h3>
+            <p class="text-gray-600 mb-8">Te pedimos de favor confirmar tu asistencia antes del <strong class="text-gray-800">30 de septiembre</strong>.</p>
+            
+            <a href="https://forms.gle/oC4stJWESssFZC7aA" target="_blank" class="inline-block px-10 py-4 bg-[#d4af37] text-white rounded-full font-semibold hover:bg-[#b5952f] transition shadow-lg text-lg w-full md:w-auto">
+                ✉️ Confirmar Asistencia Aquí
             </a>
         </div>
     </section>
 
-    <!-- SECCIÓN 5: CONFIRMACIÓN DE ASISTENCIA (RSVP) -->
-    <section class="py-20 bg-[#faf8f5] px-4">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="font-elegant text-4xl mb-6 text-gray-800">Confirmar Asistencia</h2>
-            <p class="mb-10 text-lg text-gray-600">Por favor, déjanos saber si nos acompañarás en este día tan especial.</p>
-            
-            <div class="mt-8">
-                <a href="https://forms.gle/oC4stJWESssFZC7aA" target="_blank" class="inline-block px-10 py-4 bg-[#d4af37] text-white rounded-full font-semibold hover:bg-[#b5952f] transition shadow-lg text-lg">
-                    ✉️ Confirmar Asistencia Aquí
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- PIE DE PÁGINA -->
-    <footer class="py-10 bg-gray-900 text-center text-gray-400">
-        <h3 class="font-elegant text-2xl mb-3 text-white">Odalis & Andersson</h3>
-        <p>&copy; 2026. Esperamos verte pronto.</p>
+    <footer class="py-12 bg-gray-900 text-center text-gray-400">
+        <h3 class="font-elegant text-2xl mb-3 text-white">Odalis &amp; Andersson</h3>
+        <p>&copy; 2026. ¡No podemos esperar para celebrar con ustedes!</p>
     </footer>
 
-    <!-- SCRIPT DE LA CUENTA REGRESIVA -->
+    <!-- SCRIPTS MÚLTIPLES -->
     <script>
-        var countDownDate = new Date("Nov 22, 2026 09:30:00").getTime();
-
-        var x = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
-
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours < 10 ? '0' + hours : hours;
-            document.getElementById("minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes;
-            document.getElementById("seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "<div class='text-2xl font-elegant text-gray-800'>¡Llegó el gran día!</div>";
+        document.addEventListener("DOMContentLoaded", function() {
+            // SCRIPT 1: LÓGICA DE LOS PASES (Lee la URL)
+            const urlParams = new URLSearchParams(window.location.search);
+            const pases = urlParams.get('pases');
+            const mensajePases = document.getElementById('mensaje-pases');
+            
+            if (pases) {
+                let textoAsiento = pases === '1' ? 'espacio reservado' : 'espacios reservados';
+                mensajePases.innerHTML = `Tenemos <span class="text-[#d4af37] font-bold">${pases} ${textoAsiento}</span> para ti`;
+            } else {
+                mensajePases.innerHTML = `Tenemos espacios reservados para ti`;
             }
-        }, 1000);
+
+            // SCRIPT 2: CUENTA REGRESIVA
+            var countDownDate = new Date("Nov 22, 2026 09:00:00").getTime();
+
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("hours").innerHTML = hours < 10 ? '0' + hours : hours;
+                document.getElementById("minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById("seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown").innerHTML = "<div class='text-2xl font-elegant text-gray-800'>¡Llegó el gran día!</div>";
+                }
+            }, 1000);
+        });
     </script>
 </body>
 </html>
