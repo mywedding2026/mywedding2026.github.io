@@ -3,165 +3,697 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda de Odalis y Andersson</title>
-    <!-- Tailwind CSS para diseño -->
+    <meta name="theme-color" content="#e9e5df">
+    <title>Boda de Odalis &amp; Andersson</title>
+
+    <!-- Dependencia visual mantenida: Tailwind vía CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fuentes elegantes de Google Fonts (Enlaces corregidos para VS Code) -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet">
+
+    <!-- Tipografías: serif editorial + manuscrita + sans minimalista -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&amp;family=Cormorant+Garamond:wght@400;500;600&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #faf8f5; color: #333; }
-        h1, h2, h3, .font-elegant { font-family: 'Playfair Display', serif; }
-        .overlay { background-color: rgba(0, 0, 0, 0.45); }
+        :root {
+            --paper: #f7f4ef;
+            --paper-2: #fbf9f5;
+            --canvas: #e9e5df;
+            --ink: #403c38;
+            --muted: #817970;
+            --line: #ded8d0;
+            --accent: #8c8178;
+            --white: #ffffff;
+            --shadow: 0 20px 55px rgba(64, 60, 56, 0.10), 0 4px 12px rgba(64, 60, 56, 0.07);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 15% 10%, rgba(255,255,255,.55), transparent 30%),
+                radial-gradient(circle at 85% 90%, rgba(255,255,255,.38), transparent 28%),
+                var(--canvas);
+            color: var(--ink);
+            font-family: 'Montserrat', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        .font-editorial { font-family: 'Cormorant Garamond', serif; }
+        .font-script { font-family: 'Allura', cursive; }
+
+        .page {
+            width: min(100%, 1120px);
+            margin: 0 auto;
+            padding: 24px 16px 56px;
+        }
+
+        .invitation-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--paper);
+            border: 1px solid rgba(120, 110, 100, .10);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .paper-card {
+            padding: clamp(28px, 4vw, 58px);
+        }
+
+        .paper-card::after {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border: 1px solid rgba(120,110,100,.08);
+            border-radius: 12px;
+            pointer-events: none;
+        }
+
+        .ornament {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            color: #b4aaa1;
+            opacity: .65;
+            pointer-events: none;
+        }
+        .ornament.top-right { top: 10px; right: 10px; }
+        .ornament.bottom-left { bottom: 10px; left: 10px; transform: rotate(180deg); }
+        .ornament.bottom-right { bottom: 10px; right: 10px; transform: scaleX(-1) rotate(180deg); }
+        .ornament.top-left { top: 10px; left: 10px; transform: scaleX(-1); }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: var(--muted);
+            font-size: 10px;
+            line-height: 1.5;
+            letter-spacing: .32em;
+            text-transform: uppercase;
+        }
+
+        .hairline {
+            width: 54px;
+            height: 1px;
+            margin: 14px auto 22px;
+            background: #a39a92;
+        }
+
+        .soft-line {
+            border: 0;
+            border-top: 1px solid var(--line);
+            margin: 28px 0;
+        }
+
+        .hero {
+            min-height: min(760px, 86vh);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            isolation: isolate;
+        }
+
+        .hero video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -3;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20,18,17,.10) 12%, rgba(20,18,17,.18) 48%, rgba(20,18,17,.68) 100%);
+            z-index: -2;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 12px;
+            z-index: -1;
+        }
+
+        .hero-content {
+            width: min(92%, 620px);
+            padding: 0 0 72px;
+            position: relative;
+        }
+
+        .hero-kicker {
+            font-size: 11px;
+            letter-spacing: .34em;
+            text-transform: uppercase;
+            opacity: .9;
+        }
+
+        .hero-save {
+            margin: 18px 0 -2px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(46px, 9vw, 92px);
+            line-height: .82;
+            letter-spacing: .08em;
+            font-weight: 500;
+        }
+
+        .hero-script {
+            font-family: 'Allura', cursive;
+            font-size: clamp(38px, 7vw, 64px);
+            line-height: 1;
+        }
+
+        .hero-names {
+            margin-top: 26px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 5vw, 42px);
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .hero-date {
+            margin-top: 10px;
+            font-size: 11px;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+        }
+
+        .section-stack {
+            display: grid;
+            gap: 22px;
+            margin-top: 22px;
+        }
+
+        .invitation-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(38px, 6vw, 60px);
+            font-weight: 500;
+            letter-spacing: .04em;
+            line-height: .95;
+        }
+
+        .script-heading {
+            font-family: 'Allura', cursive;
+            font-size: clamp(34px, 5vw, 50px);
+            line-height: .95;
+            color: #766c64;
+        }
+
+        .body-copy {
+            color: #6e6660;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .mini-card {
+            background: rgba(255,255,255,.62);
+            border: 1px solid rgba(120,110,100,.11);
+            border-radius: 14px;
+            padding: 26px;
+        }
+
+        .map-frame {
+            margin-top: 24px;
+            height: 300px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #e3ded7;
+        }
+
+        .map-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+            filter: grayscale(.15) saturate(.75) contrast(.95);
+        }
+
+        .ghost-button,
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 24px;
+            border-radius: 999px;
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+        }
+        .ghost-button {
+            border: 1px solid #b6aea6;
+            color: #5b544e;
+            background: transparent;
+        }
+        .primary-button {
+            border: 1px solid #4b4540;
+            color: #fff;
+            background: #4b4540;
+            box-shadow: 0 8px 20px rgba(75,69,64,.14);
+        }
+        .ghost-button:hover,
+        .primary-button:hover { transform: translateY(-2px); }
+        .primary-button:hover { background: #38332f; }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .countdown-item {
+            padding: 26px 12px;
+            text-align: center;
+            border-right: 1px solid var(--line);
+        }
+        .countdown-item:last-child { border-right: 0; }
+        .countdown-number {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 6vw, 58px);
+            line-height: .9;
+        }
+        .countdown-label {
+            display: block;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 9px;
+            letter-spacing: .23em;
+            text-transform: uppercase;
+        }
+
+        .timeline {
+            margin-top: 28px;
+            display: grid;
+            gap: 14px;
+        }
+        .timeline-row {
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 14px;
+            align-items: baseline;
+        }
+        .timeline-time {
+            font-size: 10px;
+            letter-spacing: .20em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+        .timeline-event {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+        }
+
+        .dress-layout {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 22px;
+            align-items: center;
+        }
+        .dress-image {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            display: block;
+        }
+
+        .palette-note {
+            margin-top: 16px;
+            padding-left: 16px;
+            border-left: 1px solid #9e958c;
+        }
+
+        .gift-icon {
+            width: 72px;
+            height: 72px;
+            margin: 10px auto 22px;
+            border: 1px solid #bdb5ad;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 26px;
+            color: #716960;
+            background: rgba(255,255,255,.45);
+        }
+
+        .passes-card {
+            text-align: center;
+            padding: 30px 22px;
+            background: rgba(255,255,255,.68);
+            border: 1px solid rgba(120,110,100,.12);
+            border-radius: 14px;
+        }
+
+        .passes-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.1;
+        }
+
+        .notice {
+            display: inline-block;
+            padding: 10px 14px;
+            border: 1px solid #d5c8c0;
+            background: #faf2ed;
+            color: #7d5d4f;
+            border-radius: 999px;
+            font-size: 10px;
+            line-height: 1.4;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .rsvp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .rsvp-panel {
+            padding: 30px;
+            background: rgba(255,255,255,.52);
+            border: 1px solid rgba(120,110,100,.12);
+            border-radius: 14px;
+        }
+
+        .rsvp-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 34px;
+        }
+
+        footer {
+            padding: 42px 12px 20px;
+            text-align: center;
+            color: #786f68;
+        }
+
+        .fade-up { animation: fadeUp .8s ease both; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 840px) {
+            .detail-grid,
+            .dress-layout,
+            .rsvp-grid { grid-template-columns: 1fr; }
+            .hero { min-height: 740px; }
+            .map-frame { height: 270px; }
+        }
+
+        @media (max-width: 580px) {
+            .page { padding: 10px 10px 40px; }
+            .invitation-card { border-radius: 14px; }
+            .paper-card { padding: 26px 20px; }
+            .paper-card::after { inset: 8px; border-radius: 10px; }
+            .ornament { width: 110px; height: 110px; }
+            .hero-content { padding-bottom: 50px; }
+            .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+            .countdown-item:nth-child(2) { border-right: 0; }
+            .countdown-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+            .timeline-row { grid-template-columns: 76px 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .fade-up { animation: none; }
+            .ghost-button, .primary-button { transition: none; }
+        }
     </style>
 </head>
 <body class="antialiased">
 
+<main class="page">
+
     <!-- 1. PORTADA CON VIDEO DE FONDO -->
-    <section class="relative h-screen flex items-center justify-center text-white text-center overflow-hidden">
-        <!-- Video desde Google Drive (Enlace corregido para VS Code) -->
-        <video autoplay loop muted playsinline class="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover">
+    <section class="invitation-card hero fade-up" aria-label="Portada de la invitación">
+        <video autoplay loop muted playsinline preload="metadata" aria-hidden="true">
             <source src="https://drive.google.com/uc?export=download&amp;id=1WBxstxnW6g1w1TfVLw1amr1aD8liTDSI" type="video/mp4">
         </video>
-        <div class="absolute inset-0 overlay z-10"></div>
-        <div class="relative z-20 px-4">
-            <p class="text-xl md:text-2xl italic mb-6 font-light">"Dos almas, un solo corazón, y un amor para toda la vida"</p>
-            <h1 class="font-elegant text-5xl md:text-7xl mb-6">Odalis &amp; Andersson</h1>
-            <p class="text-lg md:text-2xl tracking-widest uppercase">22 de Noviembre de 2026</p>
+        <div class="hero-content">
+            <p class="hero-kicker">Una celebración para compartir</p>
+            <div class="hero-save">SAVE</div>
+            <div class="hero-script">our date</div>
+            <div class="hero-names">Odalis &amp; Andersson</div>
+            <div class="hairline" style="background:rgba(255,255,255,.6)"></div>
+            <p class="hero-date">22 de noviembre de 2026 · 9:00 AM</p>
         </div>
     </section>
 
-    <!-- 2. INVITACIÓN FORMAL Y LUGAR -->
-    <section class="py-20 bg-white text-center px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="font-elegant text-4xl text-gray-800 mb-6">Nuestra Boda</h2>
-            <p class="text-lg text-gray-600 mb-10 leading-relaxed">Con la bendición de Dios y de nuestras familias, tenemos el honor y la inmensa alegría de invitarte a celebrar el inicio de nuestra nueva vida juntos.</p>
-            
-            <h3 class="font-elegant text-3xl md:text-4xl text-gray-800 mb-4">Odalis Molina &amp; Andersson Sorto</h3>
-            <p class="text-xl text-gray-700 font-semibold mb-2">Domingo 22 de Noviembre del 2026</p>
-            <p class="text-lg text-gray-600 mb-8">9:00 AM</p>
-            
-            <p class="text-2xl font-elegant text-gray-800 mb-4">Lugar de la Recepción: ALBACLARA</p>
-            
-            <div class="w-full h-72 md:h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg mb-8">
-                <!-- Enlace de mapa corregido -->
-                <iframe src="https://maps.google.com/maps?q=13.624748644449308,-89.17216126204593&amp;hl=es&amp;z=16&amp;output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="section-stack">
+
+        <!-- 2. INVITACIÓN FORMAL Y LUGAR -->
+        <section class="invitation-card paper-card fade-up">
+            <svg class="ornament top-right" viewBox="0 0 140 140" fill="none" aria-hidden="true">
+                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
+                <path d="M38 105c-10-2-18-7-22-14 9-1 17 3 22 14Z" stroke="currentColor"/>
+            </svg>
+            <svg class="ornament bottom-left" viewBox="0 0 140 140" fill="none" aria-hidden="true">
+                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
+                <path d="M38 105c-10-2-18-7-22-14 9-1 17 3 22 14Z" stroke="currentColor"/>
+            </svg>
+
+            <div class="relative z-10 max-w-4xl mx-auto text-center">
+                <p class="eyebrow">Junto a nuestras familias</p>
+                <div class="script-heading">tenemos el honor</div>
+                <div class="invitation-heading mt-3">de invitarte</div>
+                <div class="hairline"></div>
+                <p class="body-copy max-w-2xl mx-auto">
+                    Con la bendición de Dios y de nuestras familias, tenemos el honor y la inmensa alegría de invitarte a celebrar el inicio de nuestra nueva vida juntos.
+                </p>
+
+                <div class="my-12">
+                    <p class="eyebrow">Los novios</p>
+                    <h2 class="font-editorial text-4xl md:text-5xl font-medium tracking-[.08em] uppercase">Odalis Molina &amp; Andersson Sorto</h2>
+                    <div class="hairline"></div>
+                    <p class="font-editorial text-2xl md:text-3xl">Domingo 22 de noviembre de 2026</p>
+                    <p class="body-copy mt-2">9:00 AM</p>
+                </div>
+
+                <div class="detail-grid text-left">
+                    <div class="mini-card">
+                        <p class="eyebrow">Ceremonia &amp; recepción</p>
+                        <h3 class="font-editorial text-3xl">ALBACLARA</h3>
+                        <p class="body-copy mt-3">Un espacio para celebrar este día junto a las personas que más queremos.</p>
+                        <a href="https://waze.com/ul?ll=13.624748644449308,-89.17216126204593&amp;navigate=yes" target="_blank" rel="noopener" class="ghost-button mt-6">Abrir en Waze</a>
+                    </div>
+                    <div class="mini-card">
+                        <p class="eyebrow">Ubicación</p>
+                        <p class="body-copy">Encuentra la sede y planifica tu llegada con el mapa.</p>
+                        <div class="map-frame">
+                            <iframe src="https://maps.google.com/maps?q=13.624748644449308,-89.17216126204593&amp;hl=es&amp;z=16&amp;output=embed" title="Mapa de Albaclara" loading="lazy" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Enlace de Waze corregido -->
-            <a href="https://waze.com/ul?ll=13.624748644449308,-89.17216126204593&amp;navigate=yes" target="_blank" class="inline-block px-10 py-4 bg-gray-800 text-white rounded-full font-semibold hover:bg-gray-700 transition shadow-md">
-                📍 Abrir ruta a Albaclara en Waze
-            </a>
-        </div>
-    </section>
+        </section>
 
-    <!-- 3. CUENTA REGRESIVA -->
-    <section class="py-16 bg-[#faf8f5] text-center shadow-inner relative z-20">
-        <h2 class="font-elegant text-4xl mb-10 text-gray-800">El gran día comienza en...</h2>
-        <div id="countdown" class="flex justify-center gap-6 md:gap-12 text-gray-700">
-            <div class="flex flex-col items-center"><span id="days" class="text-4xl md:text-5xl font-elegant">00</span><span class="text-xs md:text-sm uppercase tracking-wider mt-2">Días</span></div>
-            <div class="flex flex-col items-center"><span id="hours" class="text-4xl md:text-5xl font-elegant">00</span><span class="text-xs md:text-sm uppercase tracking-wider mt-2">Horas</span></div>
-            <div class="flex flex-col items-center"><span id="minutes" class="text-4xl md:text-5xl font-elegant">00</span><span class="text-xs md:text-sm uppercase tracking-wider mt-2">Minutos</span></div>
-            <div class="flex flex-col items-center"><span id="seconds" class="text-4xl md:text-5xl font-elegant">00</span><span class="text-xs md:text-sm uppercase tracking-wider mt-2">Segundos</span></div>
-        </div>
-    </section>
+        <!-- 3. CUENTA REGRESIVA -->
+        <section class="invitation-card paper-card fade-up">
+            <svg class="ornament top-left" viewBox="0 0 140 140" fill="none" aria-hidden="true">
+                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
+            </svg>
+            <div class="relative z-10 text-center">
+                <p class="script-heading">cada vez falta menos</p>
+                <h2 class="invitation-heading mt-3">para nuestro día</h2>
+                <div class="hairline"></div>
+                <div id="countdown" class="countdown-grid max-w-3xl mx-auto">
+                    <div class="countdown-item"><span id="days" class="countdown-number">00</span><span class="countdown-label">Días</span></div>
+                    <div class="countdown-item"><span id="hours" class="countdown-number">00</span><span class="countdown-label">Horas</span></div>
+                    <div class="countdown-item"><span id="minutes" class="countdown-number">00</span><span class="countdown-label">Minutos</span></div>
+                    <div class="countdown-item"><span id="seconds" class="countdown-number">00</span><span class="countdown-label">Segundos</span></div>
+                </div>
 
-    <!-- 4. CÓDIGO DE VESTIMENTA -->
-    <section class="py-20 bg-white text-center px-4">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="font-elegant text-4xl text-gray-800 mb-6">Código de Vestimenta</h2>
-            <p class="text-3xl text-[#d4af37] font-semibold mb-6 font-elegant tracking-wide">Cocktail</p>
-            
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8 shadow-sm">
-                <p class="text-lg text-gray-800 font-semibold mb-2">Paleta de Colores</p>
-                <p class="text-gray-600 mb-4">Te sugerimos inspirarte en tonos alegres y vibrantes.</p>
-                <p class="text-red-500 font-semibold uppercase tracking-wider text-sm mb-6">Por favor, evitar el uso de color blanco o tonos beige en mujeres.</p>
-                
-                <!-- Enlace de imagen corregido -->
-                <img src="https://drive.google.com/uc?export=view&amp;id=1Mt2XzboyoH8hJrmcrw0Hzg0rxeKTyYPN" alt="Paleta de colores sugerida" class="mx-auto rounded-lg shadow-md max-w-full h-auto" style="max-height: 400px;">
+                <div class="max-w-xl mx-auto mt-10 text-left">
+                    <p class="eyebrow text-center">Nuestro primer momento del día</p>
+                    <div class="timeline">
+                        <div class="timeline-row">
+                            <div class="timeline-time">09:00 AM</div>
+                            <div class="timeline-event">Ceremonia</div>
+                        </div>
+                        <div class="timeline-row">
+                            <div class="timeline-time">ALBACLARA</div>
+                            <div class="timeline-event">Celebración junto a nuestras familias y amigos</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 5. MESA DE REGALOS -->
-    <section class="py-20 bg-[#faf8f5] text-center px-4">
-        <h2 class="font-elegant text-4xl text-gray-800 mb-6">Mesa de Regalos</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6 leading-relaxed">Nuestra mayor alegría es contar con tu compañía en este día tan especial. Si deseas tener un detalle adicional con nosotros, te agradeceríamos infinitamente que sea en forma de <strong>regalo de sobre</strong>.</p>
-        <div class="text-6xl mt-4">✉️</div>
-    </section>
+        <!-- 4. CÓDIGO DE VESTIMENTA -->
+        <section class="invitation-card paper-card fade-up">
+            <svg class="ornament bottom-right" viewBox="0 0 140 140" fill="none" aria-hidden="true">
+                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
+            </svg>
 
-    <!-- 6 & 7. CONFIRMACIÓN E INFORMACIÓN ADICIONAL -->
-    <section class="py-20 bg-white px-4">
-        <div class="max-w-2xl mx-auto bg-[#faf8f5] p-8 md:p-12 rounded-xl shadow-lg border border-gray-200 text-center">
-            
-            <!-- Bloque Dinámico de Pases Reservados -->
-            <div id="contenedor-pases" class="bg-white p-6 rounded-lg mb-8 shadow-sm border border-gray-100">
-                <p class="text-gray-500 text-sm uppercase tracking-widest mb-2">Pases Asignados</p>
-                <p id="mensaje-pases" class="text-2xl md:text-3xl text-gray-800 font-elegant font-semibold">Cargando detalles...</p>
-                <p class="text-sm text-gray-500 mt-2">Rogamos respetar los espacios reservados.</p>
+            <div class="relative z-10 dress-layout">
+                <div>
+                    <p class="eyebrow">Código de vestimenta</p>
+                    <div class="script-heading">ven a celebrar</div>
+                    <h2 class="invitation-heading mt-3">COCKTAIL</h2>
+                    <div class="hairline" style="margin-left:0"></div>
+                    <p class="body-copy">Te sugerimos inspirarte en tonos alegres y vibrantes para acompañar el espíritu de nuestra celebración.</p>
+
+                    <div class="palette-note">
+                        <p class="text-xs uppercase tracking-[.18em] text-[#665f59] font-semibold">Importante</p>
+                        <p class="body-copy mt-2">Por favor, evitar el uso de color blanco o tonos beige en mujeres.</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://drive.google.com/uc?export=view&amp;id=1Mt2XzboyoH8hJrmcrw0Hzg0rxeKTyYPN" alt="Paleta de colores sugerida para el código de vestimenta" class="dress-image">
+                </div>
             </div>
-            
-            <!-- Información Importante -->
-            <div class="mb-10">
-                <h3 class="font-elegant text-2xl text-gray-800 mb-3">Información Importante</h3>
-                <p class="text-md text-red-600 font-bold uppercase tracking-wide bg-red-50 py-2 px-4 rounded inline-block">Evento estrictamente para adultos. No se permiten niños.</p>
-            </div>
-            
-            <hr class="mb-10 border-gray-300">
-            
-            <!-- Confirmación RSVP -->
-            <h3 class="font-elegant text-3xl text-gray-800 mb-4">Confirmar Asistencia</h3>
-            <p class="text-gray-600 mb-8">Te pedimos de favor confirmar tu asistencia antes del <strong class="text-gray-800">30 de septiembre</strong>.</p>
-            
-            <a href="https://forms.gle/oC4stJWESssFZC7aA" target="_blank" class="inline-block px-10 py-4 bg-[#d4af37] text-white rounded-full font-semibold hover:bg-[#b5952f] transition shadow-lg text-lg w-full md:w-auto">
-                ✉️ Confirmar Asistencia Aquí
-            </a>
-        </div>
-    </section>
+        </section>
 
-    <!-- PIE DE PÁGINA -->
-    <footer class="py-12 bg-gray-900 text-center text-gray-400">
-        <h3 class="font-elegant text-2xl mb-3 text-white">Odalis &amp; Andersson</h3>
-        <p>&copy; 2026. ¡No podemos esperar para celebrar con ustedes!</p>
+        <!-- 5. MESA DE REGALOS -->
+        <section class="invitation-card paper-card fade-up text-center">
+            <p class="eyebrow">Un pequeño detalle</p>
+            <div class="script-heading">con mucho cariño</div>
+            <h2 class="invitation-heading mt-3">Mesa de Regalos</h2>
+            <div class="hairline"></div>
+            <div class="gift-icon" aria-hidden="true">✉</div>
+            <p class="body-copy max-w-2xl mx-auto">
+                Nuestra mayor alegría es contar con tu compañía en este día tan especial. Si deseas tener un detalle adicional con nosotros, te agradeceríamos infinitamente que sea en forma de <strong class="text-[#4f4944]">regalo de sobre</strong>.
+            </p>
+        </section>
+
+        <!-- 6 & 7. INFORMACIÓN ADICIONAL + RSVP -->
+        <section class="invitation-card paper-card fade-up">
+            <svg class="ornament top-right" viewBox="0 0 140 140" fill="none" aria-hidden="true">
+                <path d="M18 116C63 95 88 57 109 16" stroke="currentColor" stroke-width="1.1"/>
+                <path d="M51 95c-8-6-12-14-12-22 9 2 16 9 12 22Z" stroke="currentColor"/>
+                <path d="M67 78c-2-10 1-19 8-25 4 9 2 18-8 25Z" stroke="currentColor"/>
+                <path d="M82 58c-1-9 4-17 12-21 2 8-2 16-12 21Z" stroke="currentColor"/>
+            </svg>
+
+            <div class="relative z-10">
+                <div class="rsvp-grid">
+                    <div>
+                        <p class="eyebrow">Información adicional</p>
+                        <div class="script-heading">hemos reservado un lugar</div>
+                        <h2 class="invitation-heading mt-3">especial para ti</h2>
+                        <div class="hairline" style="margin-left:0"></div>
+
+                        <div class="passes-card">
+                            <p class="eyebrow">Pases asignados</p>
+                            <p id="mensaje-pases" class="passes-value">Cargando detalles...</p>
+                            <p class="body-copy text-sm mt-2">Rogamos respetar los espacios reservados.</p>
+                        </div>
+
+                        <div class="mt-6 text-center">
+                            <span class="notice">Evento estrictamente para adultos · No se permiten niños</span>
+                        </div>
+                    </div>
+
+                    <div class="rsvp-panel text-center">
+                        <p class="eyebrow">Confirmación</p>
+                        <div class="script-heading">esperamos celebrar contigo</div>
+                        <h2 class="invitation-heading mt-3">RSVP</h2>
+                        <div class="hairline"></div>
+                        <p class="body-copy">Te pedimos de favor confirmar tu asistencia antes del</p>
+                        <p class="rsvp-date mt-2">30 de septiembre</p>
+                        <p class="body-copy mt-3 max-w-md mx-auto">Tu confirmación nos ayuda a cuidar cada detalle de este día.</p>
+
+                        <a href="https://forms.gle/oC4stJWESssFZC7aA" target="_blank" rel="noopener" class="primary-button mt-8">Confirmar asistencia</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p class="font-script text-4xl text-[#6b625b]">Odalis &amp; Andersson</p>
+        <p class="text-[10px] uppercase tracking-[.24em] mt-3">22 · 11 · 2026</p>
     </footer>
+</main>
 
-    <!-- SCRIPTS MÚLTIPLES -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // SCRIPT 1: LÓGICA DE LOS PASES (Lee la URL)
-            const urlParams = new URLSearchParams(window.location.search);
-            const pases = urlParams.get('pases');
-            const mensajePases = document.getElementById('mensaje-pases');
-            
-            if (pases) {
-                let textoAsiento = pases === '1' ? 'espacio reservado' : 'espacios reservados';
-                mensajePases.innerHTML = `Tenemos <span class="text-[#d4af37] font-bold">${pases} ${textoAsiento}</span> para ti`;
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // SCRIPT 1: LÓGICA DE LOS PASES (Lee la URL)
+        const urlParams = new URLSearchParams(window.location.search);
+        const pases = urlParams.get('pases');
+        const mensajePases = document.getElementById('mensaje-pases');
+
+        if (pases) {
+            const cantidad = Number.parseInt(pases, 10);
+            if (Number.isFinite(cantidad) && cantidad > 0) {
+                const textoAsiento = cantidad === 1 ? 'espacio reservado' : 'espacios reservados';
+                mensajePases.innerHTML = `Tenemos <strong>${cantidad} ${textoAsiento}</strong> para ti`;
             } else {
-                mensajePases.innerHTML = `Tenemos espacios reservados para ti`;
+                mensajePases.textContent = 'Tenemos espacios reservados para ti';
+            }
+        } else {
+            mensajePases.textContent = 'Tenemos espacios reservados para ti';
+        }
+
+        // SCRIPT 2: CUENTA REGRESIVA
+        // Hora local del evento: 22 de noviembre de 2026 a las 09:00.
+        const countDownDate = new Date("2026-11-22T09:00:00-06:00").getTime();
+        const countdown = document.getElementById("countdown");
+        let timer;
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance <= 0) {
+                clearInterval(timer);
+                countdown.innerHTML = "<div class='text-2xl md:text-3xl font-editorial py-8 text-[#403c38]'>¡Llegó el gran día!</div>";
+                return;
             }
 
-            // SCRIPT 2: CUENTA REGRESIVA
-            var countDownDate = new Date("Nov 22, 2026 09:00:00").getTime();
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            var x = setInterval(function() {
-                var now = new Date().getTime();
-                var distance = countDownDate - now;
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+        }
 
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        updateCountdown();
+        timer = setInterval(updateCountdown, 1000);
+    });
+</script>
 
-                document.getElementById("days").innerHTML = days;
-                document.getElementById("hours").innerHTML = hours < 10 ? '0' + hours : hours;
-                document.getElementById("minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes;
-                document.getElementById("seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("countdown").innerHTML = "<div class='text-2xl font-elegant text-gray-800'>¡Llegó el gran día!</div>";
-                }
-            }, 1000);
-        });
-    </script>
 </body>
 </html>
